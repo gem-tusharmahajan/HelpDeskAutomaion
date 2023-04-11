@@ -1,19 +1,20 @@
 {
   "environment": "dev",
-  "projectName": "Helpdesk Automation",
-  "reportName": "Helpdesk",
-  "glueCode": "com.qa.helpdesk",
-  "tagName": "",
-  "feature": "src/test/resources/feature",
+  "project_name": "HELPDESK",
+  "report_name": "Helpdesk Report",
   "jewel_user": "tushar.mahajan",
   "jewel_bridge_token": "753f666f-1ffa-4723-a342-d0d78bb173621679297299707",
-  "emailReport": "n",
-  "emailTO": "tushar.mahajan@Geminisolutions.com",
-  "emailCC": "",
-  "emailBCC": "",
-  "jewelEntryUrl": "https://apis.gemecosystem.com/enter-point",
+  "email_report": "n",
+  "email_to": "tushar.mahajan@geminisolutions.com",
+  "email_cc": "",
+  "email_bcc": "",
+  "enter_point": "https://apis.gemecosystem.com/enter-point",
   "gemjarSubID": "test_id",
-  "dev": {
+  "tagName": "",
+  "feature": "src/test/resources/feature",
+  "glueCode": "com.qa.helpdesk.stepDefinition",
+  "dev":
+  {
     "browserName": "Chrome",
     "launchUrl": "https://helpdeskui-np.geminisolutions.com/#",
     "browserTimeout": 100
