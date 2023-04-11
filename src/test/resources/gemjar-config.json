@@ -12,7 +12,7 @@
   "gemjarSubID": "test_id",
   "tagName": "",
   "feature": "src/test/resources/feature",
-  "glueCode": "com.qa.helpdesk.stepDefinition",
+  "glueCode": "com.qa.helpdesk.stepdefinition",
   "dev":
   {
     "browserName": "Chrome",
