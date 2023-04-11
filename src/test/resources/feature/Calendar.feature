@@ -15,7 +15,6 @@ Feature: calendar feature functionality
       Given User opens the calendar
       Then User verifies calendar opens
 
-
     Scenario Outline: Select random Date on calendar
       And User opens the calendar
       Then User verifies calendar opens

@@ -21,7 +21,7 @@ public class calendar {
     public static By clearDataBtn = By.xpath("//button[text()='Clear Data']");
 
 
-    public static By monthBtn = By.xpath("//span[@class='rdrMonthPicker']/select/option");
+    public static By monthBtn = By.xpath("//span[@class='rdrMonthPicker']/select");
 
     public static By yearBtn = By.xpath("//span[@class='rdrYearPicker']/select");
 
@@ -30,7 +30,6 @@ public static By weekend=By.xpath("//button[contains(@class,'rdrDay rdrDayWeeken
     public static org.openqa.selenium.By days(String str) throws InterruptedException
     {
         return By.xpath("//button[contains(@class,'rdrDay')]/span/span[text()='"+str+"']");
-        //button[contains(@class,'rdrDay')]/span/span[text()='4']
     }
 
     public static By nextNavigationButton=By.xpath("//button[@class='rdrNextPrevButton rdrNextButton']");
