@@ -2371,6 +2371,26 @@ catch (Exception e)
         }
     }
 
+    @Then("^Verify user is still on login page$")
+    public void verifyUserStillOnLoginPage()
+    {
+        try {
+            waitSec(6);
+            boolean check=DriverAction.isExist(Dashboard.logOutButton);
+            if(!check)
+            {
+                DriverAction.click(LoginPage.loginBtn, "Login button");
+                GemTestReporter.addTestStep("Verify user is still on Login page","User is on HomePage",STATUS.PASS);
+            }
+        }
+        catch (Exception e)
+        {
+            GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+            logger.info("An exception occurred!",e);
+            throw new RuntimeException(e);
+        }
+
+
 
 //    Support view
 

@@ -8,6 +8,7 @@ Feature: Filter page functionalities
     When Enter email id in input field
     When Enter password in input field
     And Click on "Yes" button
+    Then Verify user is still on login page
     And Select "Employee View" view
 
 
