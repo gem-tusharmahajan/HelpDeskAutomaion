@@ -1,0 +1,15 @@
+{
+  "environment":"Dev",
+  "project_name":"HelpDesk",
+  "report_name":"Helpdesk Report",
+  "feature":"src/test/resources/feature",
+  "tags":"",
+  "glueCode":"com.qa.helpdesk.stepdefinition",
+
+  "Dev":
+  {
+    "browserName":"Chrome",
+    "launchUrl":"https://helpdeskui-np.geminisolutions.com/#",
+    "browserTimeout":10
+  }
+}

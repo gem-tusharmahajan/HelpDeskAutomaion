@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+/target
+/.idea
+/Report
+/resources/error.png
+/resources/Errors.png
+/resources/sample.png
+/resources/file-sample_500kB.doc
+/resources/file_example_XLS_10.xls
+/resources/sample.pdf
+resources/samplepptx.pptx
