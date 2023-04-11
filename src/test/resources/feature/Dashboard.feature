@@ -16,7 +16,6 @@ Feature: Dashboard functionalities
   Scenario: check functions of user guide window
     Then Verify user guide pdf gets opens
     And Click on copyLink button
-#    Then Verify copiedLink tab is opened
     And Click on close button
 
   Scenario: Verify the contact us functionality

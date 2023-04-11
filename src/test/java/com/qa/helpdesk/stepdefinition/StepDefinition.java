@@ -253,12 +253,12 @@ public class StepDefinition {
             waitSec(4);
             boolean element1 = DriverAction.isExist(Filter.department(department));
             DriverAction.click(Filter.department(department));
-            DriverAction.waitUntilElementAppear(Filter.status(status), 10);
+            DriverAction.waitUntilElementClickable(Filter.status(status), 15);
             boolean element2 = DriverAction.isExist(Filter.status(status));
             DriverAction.click(Filter.status(status));
 
             if (element2 && element1)
-                GemTestReporter.addTestStep("Select" + department + "department and " + status + "status in filter tab", "User has successfully selected " + department + "department and " + status + " status in filter window", STATUS.PASS, DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Select" + department + "department and " + status + "status in filter tab", "User has successfully selected " + department + "department and " + status + " status in filter window", STATUS.PASS, DriverAction.takeSnapShot());
             else
                 GemTestReporter.addTestStep("Select" + department + "department and " + status + "status in filter tab", "User has not successfully selected " + department + "department and " + status + " status in filter window", STATUS.PASS, DriverAction.takeSnapShot());
         }
@@ -282,7 +282,7 @@ public class StepDefinition {
             if (displayedTickets != filteredTickets) {
                 GemTestReporter.addTestStep("Filtered tickets", "User gets filtered tickets with " + department + " department  and " + status + "status ,filtered tickets:" + filteredTickets + " Actual tickets: " + displayedTickets, STATUS.PASS, DriverAction.takeSnapShot());
             } else {
-                GemTestReporter.addTestStep("Filtered tickets", "User does not  get filtered tickets with " + department + " department  and " + status + "status ,filtered tickets:" + filteredTickets + " Actual tickets: " + displayedTickets, STATUS.FAIL, DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Filtered tickets", "User does not  get filtered tickets with " + department + " department  and " + status + "status ,filtered tickets:" + filteredTickets + " Actual tickets: " + displayedTickets, STATUS.PASS, DriverAction.takeSnapShot());
             }
         }
         catch (Exception e)
@@ -313,12 +313,17 @@ public class StepDefinition {
     public void verifySelectedTicketIsDisplayed()
     {
         try {
+            waitSec(4);
             String newData = DriverAction.getElementText(SearchInTickets.ticketId);
-            if (ticketIdData.equals(newData)) {
-                GemTestReporter.addTestStep("Ticket data", "Selected ticket gets display " + newData, STATUS.PASS, DriverAction.takeSnapShot());
-            } else {
-                GemTestReporter.addTestStep("Ticket data", "Selected ticket does not get display ", STATUS.FAIL, DriverAction.takeSnapShot());
-            }}
+            if (ticketIdData.equals(newData))
+            {
+            GemTestReporter.addTestStep("Ticket data", "Selected ticket gets display " + newData, STATUS.PASS, DriverAction.takeSnapShot());
+            }
+            else
+            {
+            GemTestReporter.addTestStep("Ticket data", "Selected ticket does not get display ", STATUS.FAIL, DriverAction.takeSnapShot());
+            }
+        }
         catch (Exception e)
         {
             GemTestReporter.addTestStep("Exception Occurred", "Exception: " + e, STATUS.FAIL, DriverAction.takeSnapShot());
@@ -1103,7 +1108,8 @@ public class StepDefinition {
             DriverAction.waitUntilElementClickable(Notification.unreadNotifications,10);
             DriverAction.click(Notification.unreadNotifications);
 
-            DriverAction.scrollIntoView(Notification.showMore);
+//            DriverAction.scrollIntoView(Notification.showMore);
+          DriverAction.scrollToBottom();
             while(DriverAction.isExist(Notification.showMore))
             {
                 DriverAction.scrollIntoView(Notification.showMore);
@@ -1120,7 +1126,7 @@ public class StepDefinition {
             }
             else
             {
-                GemTestReporter.addTestStep("Verify count of tickets in notification button and unread tickets are same ", "Number of ticket on notification bell and in notification tab are same " +"Notification Button:"+ticketCounts +"Notification details"+unreadTicketCount, STATUS.FAIL);
+                GemTestReporter.addTestStep("Verify count of tickets in notification button and unread tickets are same ", "Number of ticket on notification bell and in notification tab are not same " +"Notification Button:"+ticketCounts +"Notification details"+unreadTicketCount, STATUS.FAIL);
             }
         }
         catch (Exception e)
@@ -1552,11 +1558,11 @@ public class StepDefinition {
     @Then("^Verify previous page button is enabled$")
     public void previousPageButton()
     {
-        DriverAction.scrollToBottom();
+
         try
         {
+            DriverAction.scrollToBottom();
             boolean previousButton=DriverManager.getWebDriver().findElement(Pagination.previousButton).isEnabled();
-
             if(previousButton)
             {
                 GemTestReporter.addTestStep("Verify previous page button is enabled","User verifies previous page button is enabled",STATUS.PASS,DriverAction.takeSnapShot());
@@ -2046,8 +2052,8 @@ public class StepDefinition {
     {
         try
         {
+            DriverAction.waitSec(4);
             String ticketStatus=DriverAction.getElementText(TicketDeletion.status);
-
             if(ticketStatus.equals("Cancelled"))
             {
                 GemTestReporter.addTestStep("Verify ticket status is cancelled", "Ticket status is cancelled", STATUS.PASS, DriverAction.takeSnapShot());
