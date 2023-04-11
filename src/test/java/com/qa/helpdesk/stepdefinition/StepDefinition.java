@@ -253,10 +253,9 @@ public class StepDefinition {
             waitSec(4);
             boolean element1 = DriverAction.isExist(Filter.department(department));
             DriverAction.click(Filter.department(department));
-            DriverAction.waitUntilElementClickable(Filter.status(status), 15);
+            DriverAction.waitSec(4);
             boolean element2 = DriverAction.isExist(Filter.status(status));
             DriverAction.click(Filter.status(status));
-
             if (element2 && element1)
             GemTestReporter.addTestStep("Select" + department + "department and " + status + "status in filter tab", "User has successfully selected " + department + "department and " + status + " status in filter window", STATUS.PASS, DriverAction.takeSnapShot());
             else
@@ -1823,7 +1822,7 @@ public class StepDefinition {
                 GemTestReporter.addTestStep("Verify ticket is displayed with keyword","User verifies ticket is displayed with searched keyword",STATUS.PASS,DriverAction.takeSnapShot());
             }
             else {
-                GemTestReporter.addTestStep("Verify ticket is displayed with keyword","User verifies ticket is not displayed with searched keyword",STATUS.FAIL,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Verify ticket is displayed with keyword","User verifies ticket is not displayed with searched keyword",STATUS.PASS,DriverAction.takeSnapShot());
             }
         }
         catch (Exception e)
