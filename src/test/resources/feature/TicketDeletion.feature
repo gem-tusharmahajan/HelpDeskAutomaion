@@ -21,7 +21,7 @@ Feature: Ticket creation
     When Enter description in ticket window
     And Select "<Department>" in ticket window
     When Get all the required validation data
-    And Click on submit btn
+    And Click on submit button
     Then Verify ticket is created
     And Click on "<continue>" button
     And Click on "<deleteIcon>" button
@@ -48,7 +48,7 @@ Feature: Ticket creation
     And Enter description in ticket window
     And Select "<Department>" in ticket window
     When Get all the required validation data
-    And Click on submit btn
+    And Click on submit button
     Then Verify ticket is created
     And Click on "<continue>" button
     And Click on ticket id
@@ -76,7 +76,7 @@ Feature: Ticket creation
     And Enter description in ticket window
     And Select "<Department>" in ticket window
     When Get all the required validation data
-    And Click on submit btn
+    And Click on submit button
     Then Verify ticket is created
     And Click on "<continue>" button
     And Click on ticket id
@@ -105,7 +105,7 @@ Feature: Ticket creation
     And Select "<Department>" in ticket window
     And Upload file
     When Get all the required validation data
-    And Click on submit btn
+    And Click on submit button
     Then Verify ticket is created
     And Click on "<continue>" button
     And Click on ticket id

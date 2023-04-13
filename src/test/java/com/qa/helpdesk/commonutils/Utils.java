@@ -3,12 +3,18 @@ package com.qa.helpdesk.commonutils;
 import com.gemini.generic.reporting.GemTestReporter;
 import com.gemini.generic.reporting.STATUS;
 import com.gemini.generic.ui.utils.DriverAction;
+import com.gemini.generic.ui.utils.DriverManager;
 import com.qa.helpdesk.locators.*;
 
 import com.qa.helpdesk.stepdefinition.StepDefinition;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.Duration;
 import java.util.ArrayList;
 
 import static com.gemini.generic.ui.utils.DriverAction.waitSec;
@@ -628,4 +634,10 @@ break;
                 GemTestReporter.addTestStep("Verify button is clicked", "Element is not found", STATUS.FAIL,DriverAction.takeSnapShot());
             }
         }
+
+    public static void waitForElement(By locator, int duration) {
+        WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds((long) duration));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
     }

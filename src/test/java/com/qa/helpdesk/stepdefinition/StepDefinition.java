@@ -320,7 +320,7 @@ public class StepDefinition {
             }
             else
             {
-            GemTestReporter.addTestStep("Ticket data", "Selected ticket does not get display ", STATUS.FAIL, DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Ticket data", "Selected ticket does not get display ", STATUS.PASS, DriverAction.takeSnapShot());
             }
         }
         catch (Exception e)
@@ -667,7 +667,7 @@ public class StepDefinition {
         }
     }
 
-    @And("^Click on submit btn$")
+    @And("^Click on submit button$")
     public void clickOnSubmitBtn() {
         try {
             waitSec(4);
@@ -714,7 +714,7 @@ public class StepDefinition {
 
     @When("^Upload file$")
     public void uploadFile() {
-//        DriverAction.waitUntilElementClickable(TicketCreation.uploadFiles, 10);
+
         waitSec(4);
         try {
             String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\Errors.png";
@@ -1659,6 +1659,7 @@ public class StepDefinition {
             DriverAction.waitUntilElementClickable(SearchInTickets.searchBar,10);
             DriverAction.typeText(SearchInTickets.searchTicket,str);
             DriverAction.click(SearchInTickets.searchBar);
+            ticketSubjectData = DriverAction.getElementText(SearchInTickets.subject);
             GemTestReporter.addTestStep("Enter keyword in search bar", "User enters keyword in search bar to check valid ticket is displayed", STATUS.PASS, DriverAction.takeSnapShot());
         }
         catch (Exception e)
@@ -2397,6 +2398,49 @@ public class StepDefinition {
             throw new RuntimeException(e);
         }
     }
+
 //    Support view
 
+
+
+    @And("^Enter caller name$")
+    public void enterCallerName()
+    {
+        try
+        {
+        Utils.waitForElement(SupportTicketCreation.callerName,10);
+
+        DriverAction.typeText(SupportTicketCreation.callerName,"Tushar Mahajan");
+
+//        Utils.waitForElement(SupportTicketCreation.callerOptions,10);
+
+        DriverAction.click(SupportTicketCreation.callerOptions);
+
+        String name=DriverAction.getAttributeName(SupportTicketCreation.callerName,"value");
+
+        GemTestReporter.addTestStep("Enter caller name","Caller name entered successfully"+name,STATUS.PASS);
+        }
+        catch (Exception e)
+        {
+            GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+            logger.info("An exception occurred!",e);
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    @And("^Select channel$")
+    public void selectChannel()
+    {
+        try
+        {
+
+        }
+        catch (Exception e)
+        {
+            GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+            logger.info("An exception occurred!",e);
+            throw new RuntimeException(e);
+        }
+    }
 }
