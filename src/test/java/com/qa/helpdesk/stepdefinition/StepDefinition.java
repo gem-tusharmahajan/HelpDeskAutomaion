@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.List;
 import static com.gemini.generic.ui.utils.DriverAction.waitSec;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -257,7 +258,7 @@ public class StepDefinition {
             boolean element2 = DriverAction.isExist(Filter.status(status));
             DriverAction.click(Filter.status(status));
             if (element2 && element1)
-            GemTestReporter.addTestStep("Select" + department + "department and " + status + "status in filter tab", "User has successfully selected " + department + "department and " + status + " status in filter window", STATUS.PASS, DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Select" + department + "department and " + status + "status in filter tab", "User has successfully selected " + department + "department and " + status + " status in filter window", STATUS.PASS, DriverAction.takeSnapShot());
             else
                 GemTestReporter.addTestStep("Select" + department + "department and " + status + "status in filter tab", "User has not successfully selected " + department + "department and " + status + " status in filter window", STATUS.PASS, DriverAction.takeSnapShot());
         }
@@ -316,11 +317,11 @@ public class StepDefinition {
             String newData = DriverAction.getElementText(SearchInTickets.ticketId);
             if (ticketIdData.equals(newData))
             {
-            GemTestReporter.addTestStep("Ticket data", "Selected ticket gets display " + newData, STATUS.PASS, DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Ticket data", "Selected ticket gets display " + newData, STATUS.PASS, DriverAction.takeSnapShot());
             }
             else
             {
-            GemTestReporter.addTestStep("Ticket data", "Selected ticket does not get display ", STATUS.PASS, DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Ticket data", "Selected ticket does not get display ", STATUS.PASS, DriverAction.takeSnapShot());
             }
         }
         catch (Exception e)
@@ -640,7 +641,8 @@ public class StepDefinition {
 
     @And("Select {string} in ticket window")
     public void selectInTicketWindow(String department) throws InterruptedException {
-        try {
+        try
+        {
             DriverAction.waitUntilElementClickable(TicketCreation.departmentType, 10);
             DriverAction.click(TicketCreation.departmentType);
             DriverAction.waitUntilElementClickable(TicketCreation.departments(department), 10);
@@ -704,7 +706,7 @@ public class StepDefinition {
     @When("^Click on ticket id$")
     public void clickOnTicketId() {
         try {
-            DriverAction.click(TicketCreation.ticketId);
+            DriverAction.click(TicketCreation.ticketId,"Ticket Id");
         } catch (Exception e) {
             GemTestReporter.addTestStep("Exception Occurred", "Exception: " + e, STATUS.FAIL, DriverAction.takeSnapShot());
             logger.info("An exception occurred!",e);
@@ -787,6 +789,9 @@ public class StepDefinition {
         try {
             DriverAction.waitUntilElementAppear(TicketCreation.subCategoryOptions(str), 10);
             DriverAction.click(TicketCreation.subCategoryOptions(str));
+            ticketSubCategory=DriverAction.getElementText(TicketCreation.categoryOptions(str));
+            GemTestReporter.addTestStep("Select sub Category from dropdown","Seleted sub category"+ticketSubCategory,STATUS.PASS);
+
         } catch (Exception e) {
             GemTestReporter.addTestStep("Exception Occurred", "Exception: " + e, STATUS.FAIL, DriverAction.takeSnapShot());
             logger.info("An exception occurred!",e);
@@ -796,9 +801,12 @@ public class StepDefinition {
 
     @When("Select {string} from category option")
     public void select(String str) throws InterruptedException {
-        try {
+        try
+        {
             DriverAction.waitUntilElementAppear(TicketCreation.categoryOptions(str), 10);
             DriverAction.click(TicketCreation.categoryOptions(str));
+            ticketCategory=DriverAction.getElementText(TicketCreation.categoryOptions(str));
+            GemTestReporter.addTestStep("Select category from dropdown","Seleted category"+ticketCategory,STATUS.PASS);
         }
         catch (Exception e)
         {
@@ -1107,8 +1115,7 @@ public class StepDefinition {
             DriverAction.waitUntilElementClickable(Notification.unreadNotifications,10);
             DriverAction.click(Notification.unreadNotifications);
 
-//            DriverAction.scrollIntoView(Notification.showMore);
-          DriverAction.scrollToBottom();
+            DriverAction.scrollToBottom();
             while(DriverAction.isExist(Notification.showMore))
             {
                 DriverAction.scrollIntoView(Notification.showMore);
@@ -1162,11 +1169,11 @@ public class StepDefinition {
             DriverAction.dropDown(calendar.yearBtn, year);
             DriverAction.waitUntilElementClickable(calendar.days(day),10);
             DriverAction.click(calendar.days(day));
-            GemTestReporter.addTestStep("Verify user selects random date", "User successfully selects random date", STATUS.PASS);
+            GemTestReporter.addTestStep("Verify user selects random date", "User successfully selects random date", STATUS.PASS,DriverAction.takeSnapShot());
         }
         catch (Exception e)
         {
-            GemTestReporter.addTestStep("Exception Occurred", "Exception: " + e, STATUS.FAIL);
+            GemTestReporter.addTestStep("Exception Occurred", "Exception: " + e, STATUS.FAIL,DriverAction.takeSnapShot());
             logger.info("An exception occurred!",e);
             throw new RuntimeException(e);
         }
@@ -1204,7 +1211,7 @@ public class StepDefinition {
             case "Support View":
             {
                 try {
-                    DriverAction.click(Support.supportViewBtn);
+                    DriverAction.click(SupportDashboard.supportViewBtn);
                     GemTestReporter.addTestStep("Verify support view button exists", "Support view button exist ", STATUS.PASS, DriverAction.takeSnapShot());
                 } catch (Exception e) {
                     GemTestReporter.addTestStep("Exception Occurred", "Exception: " + e, STATUS.FAIL, DriverAction.takeSnapShot());
@@ -1216,7 +1223,7 @@ public class StepDefinition {
             case "Employee View":
             {
                 try {
-                    DriverAction.click(Support.employeeViewBtn);
+                    DriverAction.click(SupportDashboard.employeeViewBtn);
                     GemTestReporter.addTestStep("Verify employee view button exists", "Employee view button exists and clicked ", STATUS.PASS, DriverAction.takeSnapShot());
                 } catch (Exception e) {
                     GemTestReporter.addTestStep("Exception Occurred", "Exception: " + e, STATUS.FAIL);
@@ -1235,8 +1242,8 @@ public class StepDefinition {
     @Then("^Verify support view window opens$")
     public void supportView() {
         try {
-            DriverAction.waitUntilElementClickable(Support.vipButton, 10);
-            boolean elementPresent = DriverAction.isExist(Support.vipButton);
+            DriverAction.waitUntilElementClickable(SupportDashboard.vipButton, 10);
+            boolean elementPresent = DriverAction.isExist(SupportDashboard.vipButton);
 
             if (elementPresent) {
                 GemTestReporter.addTestStep("Verify user successfully opens support View window", "User successfully opens support view window", STATUS.PASS, DriverAction.takeSnapShot());
@@ -1291,7 +1298,7 @@ public class StepDefinition {
     public void createNewSupportViewTicket()
     {
         try {
-            String data = DriverAction.getElementText(Support.ticketHeader);
+            String data = DriverAction.getElementText(SupportDashboard.ticketHeader);
             if (data.equals("Create New Ticket")) {
                 GemTestReporter.addTestStep("Verify Create new ticket tab is opened", "User has successfully opened create new ticket tab", STATUS.PASS, DriverAction.takeSnapShot());
             } else {
@@ -1310,9 +1317,9 @@ public class StepDefinition {
     @When("Enter {string} in input field")
     public void inputField(String name) {
         try {
-            DriverAction.waitUntilElementClickable(Support.callerName, 10);
-            DriverAction.typeText(Support.callerName, name);
-            DriverManager.getWebDriver().findElement(Support.callerName).sendKeys(Keys.ENTER);
+            DriverAction.waitUntilElementClickable(SupportDashboard.callerName, 10);
+            DriverAction.typeText(SupportDashboard.callerName, name);
+            DriverManager.getWebDriver().findElement(SupportDashboard.callerName).sendKeys(Keys.ENTER);
         } catch (Exception e) {
             GemTestReporter.addTestStep("Exception Occurred", "Exception: " + e, STATUS.FAIL);
             logger.info("An exception occurred!",e);
@@ -1323,7 +1330,7 @@ public class StepDefinition {
     @And("^Click on caller Information icon$")
     public void callerInformationIcon() {
         try {
-            DriverAction.click(Support.callerInformation);
+            DriverAction.click(SupportDashboard.callerInformation);
             GemTestReporter.addTestStep("Verify caller information", "Caller information is verified", STATUS.PASS, DriverAction.takeSnapShot());
         }
         catch (Exception e)
@@ -2401,25 +2408,19 @@ public class StepDefinition {
 
 //    Support view
 
-
-
     @And("^Enter caller name$")
     public void enterCallerName()
     {
         try
         {
-        Utils.waitForElement(SupportTicketCreation.callerName,10);
-
-        DriverAction.typeText(SupportTicketCreation.callerName,"Tushar Mahajan");
-
-//        Utils.waitForElement(SupportTicketCreation.callerOptions,10);
-
-        DriverAction.click(SupportTicketCreation.callerOptions);
-
-        String name=DriverAction.getAttributeName(SupportTicketCreation.callerName,"value");
-
-        GemTestReporter.addTestStep("Enter caller name","Caller name entered successfully"+name,STATUS.PASS);
+            Utils.waitForElement(SupportTicketCreation.callerName,10);
+            DriverAction.typeText(SupportTicketCreation.callerName,"Tushar Mahajan");
+            waitSec(3);
+            DriverManager.getWebDriver().findElement(SupportTicketCreation.callerOptions).sendKeys(Keys.chord(Keys.CONTROL, Keys.ENTER));
+            String name=DriverAction.getAttributeName(SupportTicketCreation.callerName,"value");
+            GemTestReporter.addTestStep("Enter caller name","Caller name entered successfully"+name,STATUS.PASS);
         }
+
         catch (Exception e)
         {
             GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
@@ -2429,12 +2430,21 @@ public class StepDefinition {
     }
 
 
-    @And("^Select channel$")
-    public void selectChannel()
+    @And("^Verify channel field is disabled$")
+    public void verifyChannelFieldIsDisabled()
     {
         try
         {
-
+            String channel=DriverAction.getElementText(SupportTicketCreation.channel);
+            boolean channelField=DriverManager.getWebDriver().findElement(SupportTicketCreation.channel).isEnabled();
+            if (channel.equals("Portal") && channelField)
+            {
+                GemTestReporter.addTestStep("Verify channel field is disabled","User verifies channel field is disabled",STATUS.PASS,DriverAction.takeSnapShot());
+            }
+            else
+            {
+                GemTestReporter.addTestStep("Verify channel field is disabled","User verifies channel field is enabled",STATUS.FAIL,DriverAction.takeSnapShot());
+            }
         }
         catch (Exception e)
         {
@@ -2442,5 +2452,197 @@ public class StepDefinition {
             logger.info("An exception occurred!",e);
             throw new RuntimeException(e);
         }
+    }
+
+    @And("Enter {string} details")
+    public void enterDetails(String str) {
+        try
+        {
+            DriverAction.typeText(SupportDashboard.configuration,str);
+        }
+        catch (Exception e)
+        {
+            GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+            logger.info("An exception occurred!",e);
+            throw new RuntimeException(e);
+        }
+    }
+    String name;
+    @And("Select {string} from Assigned To options")
+    public void selectFromAssignedToOptions(String str)
+    {
+        try
+        {
+            DriverAction.click(SupportDashboard.assignedTo,"Assigned To");
+            DriverAction.click(SupportTicketEditTickets.name(str));
+            name=DriverAction.getElementText(SupportTicketEditTickets.name(str));
+            GemTestReporter.addTestStep("Verify executive selected from dropdown","User successfully selected"+name,STATUS.PASS,DriverAction.takeSnapShot());
+        }
+        catch (Exception e)
+        {
+            GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+            logger.info("An exception occurred!",e);
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @When("Select {string} from department dropdown")
+    public void selectFromDepartmentDropdown(String str)
+    {
+        try
+        {
+            DriverAction.click(SupportTicketEditTickets.department,"Department");
+            DriverAction.click(SupportTicketEditTickets.chooseDepartment(str));
+            ticketDepartmentData=DriverAction.getElementText(TicketCreation.categoryOptions(str));
+            GemTestReporter.addTestStep("Select department from dropdown","Seleted department"+ticketDepartmentData,STATUS.PASS);
+        }
+        catch (Exception e)
+        {
+            GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+            logger.info("An exception occurred!",e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    @And("Select {string} from status dropdown")
+    public void selectFromStatusDropdown(String str)
+    {
+        try
+        {
+            DriverAction.click(SupportTicketEditTickets.status(str),"Status");
+            String status=DriverAction.getElementText(SupportTicketEditTickets.status(str));
+            GemTestReporter.addTestStep("Select status from dropdown","Selected status "+status,STATUS.PASS,DriverAction.takeSnapShot());
+        }
+        catch (Exception e)
+        {
+            GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+            logger.info("An exception occurred!",e);
+            throw new RuntimeException(e);
+        }
+    }
+    String ticketCount;
+    @When("Get {string} ticket count")
+    public void getAssignedTicketCount(String str)
+    {
+        try
+        {
+            switch (str)
+            {
+                case "Assigned":
+                {
+                    String assignedHeader=DriverAction.getElementText(SupportDashboard.type(str));
+                    String[] arrOfStr = assignedHeader.split(" ");
+                    String str1= String.valueOf(arrOfStr[1]);
+                    String ans=str1.substring(str1.indexOf("(")+1, str1.indexOf(")") );
+                    String assignedTicket= ans;
+                    ticketCount=assignedTicket;
+                    GemTestReporter.addTestStep("Get ticket count for assigned","ticket count for assigned "+ticketCount,STATUS.PASS,DriverAction.takeSnapShot());
+                    break;
+                }
+                case "Unassigned":
+                {
+                    DriverAction.click(SupportDashboard.type(str),"unAssigned");
+                    String assignedHeader=DriverAction.getElementText(SupportDashboard.type(str));
+                    String[] arrOfStr = assignedHeader.split(" ");
+                    String str1= String.valueOf(arrOfStr[1]);
+                    String ans=str1.substring(str1.indexOf("(")+1, str1.indexOf(")") );
+                    String unAssignedTicket=ans;
+                    ticketCount=unAssignedTicket;
+                    GemTestReporter.addTestStep("Get ticket count for assigned","ticket count for assigned "+ticketCount,STATUS.PASS,DriverAction.takeSnapShot());
+                    break;
+                }
+                case "My Department":
+                {
+                    DriverAction.click(SupportDashboard.type(str),"My Department");
+                    String assignedHeader=DriverAction.getElementText(SupportDashboard.type(str));
+                    String[] arrOfStr = assignedHeader.split(" ");
+                    String str1= String.valueOf(arrOfStr[2]);
+                    String ans=str1.substring(str1.indexOf("(")+1, str1.indexOf(")") );
+                    String myDepartment= ans;
+                    ticketCount=myDepartment;
+                    GemTestReporter.addTestStep("Get ticket count for assigned","ticket count for assigned "+ticketCount,STATUS.PASS,DriverAction.takeSnapShot());
+                    break;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+            logger.info("An exception occurred!",e);
+            throw new RuntimeException(e);
+
+        }
+    }
+
+    @Then("^Verify ticket count at header is same as footer$")
+    public void verifyTicketCountAtHeaderIsSameAsFooter()
+    {
+        try
+        {
+            String footer=DriverAction.getElementText(SupportDashboard.footerCount);
+            String[] arrOfStr = footer.split("of ");
+            String str1= String.valueOf(arrOfStr[1]);
+            String footerCount= String.valueOf(str1.charAt(0));
+
+            if (footerCount.equals(ticketCount))
+            {
+                GemTestReporter.addTestStep("Verify total tickets are same","User verifies total ticket count at header and at footer are same"+footerCount,STATUS.PASS,DriverAction.takeSnapShot());
+            }
+            else {
+                GemTestReporter.addTestStep("Verify total tickets are same","User verifies total ticket count at header and at footer are not same"+footerCount,STATUS.PASS,DriverAction.takeSnapShot());
+            }
+        }
+        catch (Exception e)
+        {
+            GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+            logger.info("An exception occurred!",e);
+            throw new RuntimeException(e);
+        }
+    }
+    //div[contains(@class,'tabs_tabItem__5Muc1 tabs_fontLightGreen__TtaCd')]
+
+    @Then("^Verify ticket count at header is same as footer for unassigned$")
+    public void verifyTicketCountAtHeaderIsSameAsFooterUnassigned()
+    {
+        try
+        {
+            String footer=DriverAction.getElementText(SupportDashboard.footerCount);
+            String[] arrOfStr = footer.split("of ");
+            String str1= String.valueOf(arrOfStr[1]);
+
+
+            String footerCount=str1.substring(0, str1.length() - 1 +1);
+
+            if (footerCount.equals(ticketCount))
+            {
+                GemTestReporter.addTestStep("Verify total tickets are same","User verifies total ticket count at header and at footer are same"+footerCount,STATUS.PASS,DriverAction.takeSnapShot());
+            }
+            else {
+                GemTestReporter.addTestStep("Verify total tickets are same","User verifies total ticket count at header and at footer are not same"+footerCount,STATUS.PASS,DriverAction.takeSnapShot());
+            }
+        }
+        catch (Exception e)
+        {
+            GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+            logger.info("An exception occurred!",e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    @And("^Click on edit ticket icon$")
+    public void clickOnEditTicketIcon() {
+        try
+        {
+            DriverAction.click(SupportDashboard.editTicketIcon,"Edit ticket icon");
+        }
+        catch (Exception e)
+        {
+            GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+            logger.info("An exception occurred!",e);
+            throw new RuntimeException(e);
+
+        }
+
     }
 }

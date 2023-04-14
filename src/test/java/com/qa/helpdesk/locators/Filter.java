@@ -8,14 +8,14 @@ public class Filter {
 
     public static By filterIcon = By.xpath("//button[contains(@class,'btn btn-light')]");
 
-    public static org.openqa.selenium.By department(String str) throws InterruptedException {
+    public static By department(String str) throws InterruptedException {
         return By.xpath("//button[contains(text(),'" + str + "')]");
     }
 
-    public static org.openqa.selenium.By status(String str) throws InterruptedException {
+    public static By status(String str) throws InterruptedException {
         return By.xpath("//button[contains(text(),'" + str + "')]");
     }
-
+//Cancelled
     public static By rowPerPage = By.xpath("//select[@aria-label='rows per page']");
 
     public static By rowPerPageDropdown = By.xpath("//select[@aria-label='rows per page']/option[text()='25']");
@@ -24,7 +24,7 @@ public class Filter {
 
     public static By clearAll = By.xpath("//button[@class='filters_clearButton__ZWsvi']");
 
-    public static org.openqa.selenium.By departmentColumn(String str) {
+    public static By departmentColumn(String str) {
         return By.xpath("//th[text()='Department']/ancestor::table/tbody/tr['" + str + "']/td['" + str + "']");
     }
 
@@ -33,10 +33,10 @@ public class Filter {
     public static By statusCol = By.xpath("//th[text()='Status']/ancestor::table/tbody/tr/td[7]");
 
 
-    public static org.openqa.selenium.By departmentCols(String str) {
+    public static By departmentCols(String str) {
         return By.xpath("(//th[text()='Department']/ancestor::table/tbody/tr/td[3])["+str+"]");
     }
-    public static org.openqa.selenium.By statusCol(String str)
+    public static By statusCol(String str)
     {
         return By.xpath("(//th[text()='Department']/ancestor::table/tbody/tr/td[7])['"+str+"']");
     }

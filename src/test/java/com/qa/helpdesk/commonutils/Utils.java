@@ -42,168 +42,13 @@ public class Utils {
         boolean elementPresent = false;
         waitSec(3);
 
-           switch (btnName)
+        switch (btnName)
+        {
+            case "edit ticket":
             {
-                case "clear data":
-                {
-                    try {
-                        elementPresent = DriverAction.isExist(calendar.clearDataBtn);
-                        DriverAction.click(calendar.clearDataBtn,"clear data");
-                    }
-                    catch (Exception e)
-                    {
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                    }
-                    break;
-                }
-
-                case "previous":
-                {
-                    try
-                    {
-                        elementPresent = DriverAction.isExist(calendar.previousNavigationButton);
-                        DriverAction.click(calendar.previousNavigationButton);
-                    }
-                    catch (Exception e)
-                    {
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                    }
-                    break;
-                }
-
-                case "next":
-                {
-                    try
-                    {
-                        elementPresent = DriverAction.isExist(calendar.nextNavigationButton);
-                        DriverAction.click(calendar.nextNavigationButton);
-                    }
-                    catch (Exception e)
-                        {
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                        }
-                    break;
-                }
-                case "timeline":
-                {
-                    try
-                    {
-                        elementPresent = DriverAction.isExist(TicketDeletion.timelineButton);
-                        DriverAction.click(TicketDeletion.timelineButton);
-                    }
-                    catch (Exception e)
-                    {
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                    }
-                    break;
-                }
-                case "clear All":
-                {
-                    try
-                    {
-                    elementPresent = DriverAction.isExist(Filter.clearAll);
-                    DriverAction.click(Filter.clearAll);
-                    }
-                    catch (Exception e)
-                    {
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                    }
-                    break;
-
-                }
-                case "collapse":
-                {
-                    try {
-                        elementPresent = DriverAction.isExist(Dashboard.collapseButton);
-                        DriverAction.click(Dashboard.collapseButton," Collapsed button");
-                    }
-                    catch (Exception e)
-                    {
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                    }
-                    break;
-                }
-                case "next page":
-                {
-                    try {
-                        elementPresent = DriverAction.isExist(Pagination.nextButton);
-                        DriverAction.click(Pagination.nextButton);
-                    }
-                    catch (Exception e){
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                    }
-                    break;
-                }
-                case "previous page":
-                {
-                    try {
-                        elementPresent = DriverAction.isExist(Pagination.previousButton);
-                        DriverAction.click(Pagination.previousButton);
-                    }
-                    catch (Exception e)
-                    {
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                    }
-                    break;
-                }
-
-                case "logOut":
-                {
-                    try {
-                        elementPresent = DriverAction.isExist(Dashboard.logOutButton);
-                        DriverAction.click(Dashboard.logOutButton);
-                    }
-                    catch (Exception e)
-                    {
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                    }
-                    break;
-                }
-
-                case "close":
-                    {
-                    try
-                    {
-                        elementPresent = DriverAction.isExist(Dashboard.crossButton);
-                        DriverAction.click(Dashboard.crossButton);
-                    }
-                    catch (Exception e)
-                    {
-                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                    throw new RuntimeException(e);
-                    }
-                    break;
-                    }
-                case "cross":
-                {
-                    try
-                    {
-                        elementPresent = DriverAction.isExist(Filter.crossFilterButton);
-                        DriverAction.click(Filter.crossFilterButton);
-                    }
-                    catch (Exception e)
-                    {
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                    }
-                    break;
-                }
-
-            case "notification":
-            {
-                try
-                {
-                elementPresent = DriverAction.isExist(LoginPage.notificationIcon);
-                DriverAction.click(LoginPage.notificationIcon);
+                try {
+                    elementPresent = DriverAction.isExist(SupportDashboard.editTicket);
+                    DriverAction.click(SupportDashboard.editTicket,"Edit ticket");
                 }
                 catch (Exception e)
                 {
@@ -212,19 +57,187 @@ public class Utils {
                 }
                 break;
             }
-                case "support":
-                {
-                    try {
-                        elementPresent=DriverAction.isExist(LoginPage.supportIcon);
-                        DriverAction.click(LoginPage.supportIcon);
-                    }
-                    catch (Exception e)
-                    {
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                    }
-                    break;
+            case "clear data":
+            {
+                try {
+                    elementPresent = DriverAction.isExist(calendar.clearDataBtn);
+                    DriverAction.click(calendar.clearDataBtn,"clear data");
                 }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+
+            case "previous":
+            {
+                try
+                {
+                    elementPresent = DriverAction.isExist(calendar.previousNavigationButton);
+                    DriverAction.click(calendar.previousNavigationButton);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+
+            case "next":
+            {
+                try
+                {
+                    elementPresent = DriverAction.isExist(calendar.nextNavigationButton);
+                    DriverAction.click(calendar.nextNavigationButton);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+            case "timeline":
+            {
+                try
+                {
+                    elementPresent = DriverAction.isExist(TicketDeletion.timelineButton);
+                    DriverAction.click(TicketDeletion.timelineButton);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+            case "clear All":
+            {
+                try
+                {
+                    elementPresent = DriverAction.isExist(Filter.clearAll);
+                    DriverAction.click(Filter.clearAll);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+
+            }
+            case "collapse":
+            {
+                try {
+                    elementPresent = DriverAction.isExist(Dashboard.collapseButton);
+                    DriverAction.click(Dashboard.collapseButton," Collapsed button");
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+            case "next page":
+            {
+                try {
+                    elementPresent = DriverAction.isExist(Pagination.nextButton);
+                    DriverAction.click(Pagination.nextButton);
+                }
+                catch (Exception e){
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+            case "previous page":
+            {
+                try {
+                    elementPresent = DriverAction.isExist(Pagination.previousButton);
+                    DriverAction.click(Pagination.previousButton);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+
+            case "logOut":
+            {
+                try {
+                    elementPresent = DriverAction.isExist(Dashboard.logOutButton);
+                    DriverAction.click(Dashboard.logOutButton);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+
+            case "close":
+            {
+                try
+                {
+                    elementPresent = DriverAction.isExist(Dashboard.crossButton);
+                    DriverAction.click(Dashboard.crossButton);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+            case "cross":
+            {
+                try
+                {
+                    elementPresent = DriverAction.isExist(Filter.crossFilterButton);
+                    DriverAction.click(Filter.crossFilterButton);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+
+            case "notification":
+            {
+                try
+                {
+                    elementPresent = DriverAction.isExist(LoginPage.notificationIcon);
+                    DriverAction.click(LoginPage.notificationIcon);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+            case "support":
+            {
+                try {
+                    elementPresent=DriverAction.isExist(LoginPage.supportIcon);
+                    DriverAction.click(LoginPage.supportIcon);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
 
             case "User Guide":
             {
@@ -232,7 +245,7 @@ public class Utils {
                 try {
                     elementPresent = DriverAction.isExist(Dashboard.userGuide);
                     DriverAction.click(Dashboard.userGuide);
-                    }
+                }
                 catch (Exception e)
                 {
                     GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
@@ -240,34 +253,34 @@ public class Utils {
                 }
                 break;
             }
-                case "Page Per Dropdown":
-                {
-                    try {
-                        elementPresent = DriverAction.isExist(Pagination.pagePerDropdown);
-                        DriverAction.click(Pagination.pagePerDropdown);
-                    }
-                    catch (Exception e) {
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                    }
-                    break;
-
+            case "Page Per Dropdown":
+            {
+                try {
+                    elementPresent = DriverAction.isExist(Pagination.pagePerDropdown);
+                    DriverAction.click(Pagination.pagePerDropdown);
                 }
-                case "unread":
-                {
-                    try {
-                        elementPresent = DriverAction.isExist(Notification.unreadNotifications);
-                        DriverAction.click(Notification.unreadNotifications);
-                    }
-                    catch (Exception e) {
-
-                        GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                        throw new RuntimeException(e);
-                    }
-                    break;
+                catch (Exception e) {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
                 }
+                break;
 
-            case "deleteTicketIcon":
+            }
+            case "unread":
+            {
+                try {
+                    elementPresent = DriverAction.isExist(Notification.unreadNotifications);
+                    DriverAction.click(Notification.unreadNotifications);
+                }
+                catch (Exception e) {
+
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+
+            case "option":
             {
                 try {
                     elementPresent = DriverAction.isExist(TicketDeletion.options);
@@ -302,10 +315,9 @@ public class Utils {
                     elementPresent = DriverAction.isExist(LoginPage.outlookYesBtn);
                     DriverAction.waitUntilElementClickable(LoginPage.outlookYesBtn,10);
                     DriverAction.click(LoginPage.outlookYesBtn,"yes button");
-                    waitSec(5);
                 }
-                catch (Exception e) {
-
+                catch (Exception e)
+                {
                     GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
                     throw new RuntimeException(e);
                 }
@@ -395,11 +407,11 @@ public class Utils {
                     elementPresent = DriverAction.isExist(SearchInTickets.departmentIcon);
                     DriverAction.click(SearchInTickets.departmentIcon);
                 }
-             catch (Exception e) {
+                catch (Exception e) {
 
-                 GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                 throw new RuntimeException(e);
-             }
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
                 break;
             }
 
@@ -417,17 +429,17 @@ public class Utils {
                 break;
             }
             case "assigned To": {
-             try {
-                 elementPresent = DriverAction.isExist(SearchInTickets.assignedTo);
-                 DriverAction.click(SearchInTickets.assignedTo);
-             }
-             catch (Exception e)
-             {
+                try {
+                    elementPresent = DriverAction.isExist(SearchInTickets.assignedTo);
+                    DriverAction.click(SearchInTickets.assignedTo);
+                }
+                catch (Exception e)
+                {
 
 
-                 GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-                 throw new RuntimeException(e);
-             }
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
                 break;
             }
             case "status": {
@@ -483,41 +495,54 @@ public class Utils {
                     DriverAction.waitUntilElementAppear(TicketCreation.continueBtn,10);
                     DriverAction.click(TicketCreation.continueBtn);
                 }
-catch (Exception e) {
+                catch (Exception e) {
 
                     GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-    throw new RuntimeException(e);
-}
+                    throw new RuntimeException(e);
+                }
                 break;
             }
 
             case "Category":
             {
- try {
-     elementPresent = DriverAction.isExist(TicketCreation.category);
-     DriverAction.click(TicketCreation.category);
- }
- catch (Exception e)
- {
-     GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-     throw new RuntimeException(e);
- }
- break;
- }
+                try {
+                    elementPresent = DriverAction.isExist(TicketCreation.category);
+                    DriverAction.click(TicketCreation.category);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+            case "supportSubCategory":
+            {
+                try
+                {
+                    elementPresent=DriverAction.isExist(SupportDashboard.subCategory);
+                    DriverAction.click(SupportDashboard.subCategory);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
             case "subCategory":
             {
- try {
-     elementPresent=DriverAction.isExist(TicketCreation.subCategory);
-     DriverAction.click(TicketCreation.subCategory);
- }
- catch (Exception e)
- {
-
-     GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-     throw new RuntimeException(e);
-
- }
-       break;
+                try
+                {
+                    elementPresent=DriverAction.isExist(TicketCreation.subCategory);
+                    DriverAction.click(TicketCreation.subCategory);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
             }
             default:
             {
@@ -526,14 +551,14 @@ catch (Exception e) {
         }
         if (elementPresent)
         {
-        GemTestReporter.addTestStep("Verify button is clicked","User verifies "+btnName+"is present and clicked",STATUS.PASS,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Verify button is clicked","User verifies "+btnName+"is present and clicked",STATUS.PASS,DriverAction.takeSnapShot());
         }
-   else
-    {
-    GemTestReporter.addTestStep("Verify button is clicked","User verifies "+btnName+"is not present and clicked",STATUS.FAIL,DriverAction.takeSnapShot());
-    }
+        else
+        {
+            GemTestReporter.addTestStep("Verify button is clicked","User verifies "+btnName+"is not present and clicked",STATUS.FAIL,DriverAction.takeSnapShot());
+        }
 
- }
+    }
 
     public void inputField(String inputField) {
 
@@ -553,7 +578,7 @@ catch (Exception e) {
                     GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL);
                     throw new RuntimeException(e);
                 }
-            break;
+                break;
             }
 
             case "Haxm":
@@ -582,24 +607,24 @@ catch (Exception e) {
                     GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
                     throw new RuntimeException(e);
                 }
-           break;
+                break;
             }
 
             case "Eclipse":
             {
                 try
-                    {
-                     elementPresent = DriverAction.isExist(TicketCreation.subject);
-                     DriverAction.click(TicketCreation.subject);
-                     DriverAction.typeText(TicketCreation.subject,inputField);
-                    }
-        catch (Exception e)
-        {
-            GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
-            throw new RuntimeException(e);
-        }
-break;
-}
+                {
+                    elementPresent = DriverAction.isExist(TicketCreation.subject);
+                    DriverAction.click(TicketCreation.subject);
+                    DriverAction.typeText(TicketCreation.subject,inputField);
+                }
+                catch (Exception e)
+                {
+                    GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
 
             case "Incident": {
                 try {
@@ -610,34 +635,35 @@ break;
                     GemTestReporter.addTestStep("Exception Occurred","Exception: "+e,STATUS.FAIL,DriverAction.takeSnapShot());
                     throw new RuntimeException(e);
                 }
-            break;
-            }
-                case "Request":
-                {
-                    try {
-                        elementPresent = DriverAction.isExist(TicketCreation.request);
-                        DriverAction.click(TicketCreation.request);
-                    }
-                    catch (Exception e){
-
-                        GemTestReporter.addTestStep("EXCEPTION ERROR", "SOME ERROR OCCURRED", STATUS.FAIL,DriverAction.takeSnapShot());
-                    }
-                }
                 break;
-        }
-            if (elementPresent)
-            {
-                GemTestReporter.addTestStep("Verify button is clicked",inputField+ " is present and clicked",STATUS.PASS,DriverAction.takeSnapShot());
             }
-            else
+            case "Request":
             {
-                GemTestReporter.addTestStep("Verify button is clicked", "Element is not found", STATUS.FAIL,DriverAction.takeSnapShot());
+                try {
+                    elementPresent = DriverAction.isExist(TicketCreation.request);
+                    DriverAction.click(TicketCreation.request);
+                }
+                catch (Exception e){
+
+                    GemTestReporter.addTestStep("EXCEPTION ERROR", "SOME ERROR OCCURRED", STATUS.FAIL,DriverAction.takeSnapShot());
+                }
             }
+            break;
         }
+        if (elementPresent)
+        {
+            GemTestReporter.addTestStep("Verify button is clicked",inputField+ " is present and clicked",STATUS.PASS,DriverAction.takeSnapShot());
+        }
+        else
+        {
+            GemTestReporter.addTestStep("Verify button is clicked", "Element is not found", STATUS.FAIL,DriverAction.takeSnapShot());
+        }
+    }
 
     public static void waitForElement(By locator, int duration) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds((long) duration));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    }
+
+}

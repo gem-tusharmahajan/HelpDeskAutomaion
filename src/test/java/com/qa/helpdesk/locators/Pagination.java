@@ -6,7 +6,7 @@ public class Pagination
 {
     public static By pagePerDropdown=By.xpath("//div[contains(@class,'MuiInputBase-root MuiInputBase-colorPrimary css-rmmij8')]");
 
-    public static org.openqa.selenium.By value(String str) throws InterruptedException
+    public static By value(String str) throws InterruptedException
     {
         return By.xpath("//select/option[@value='"+str+"']");
     }

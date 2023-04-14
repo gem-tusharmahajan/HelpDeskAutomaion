@@ -50,10 +50,10 @@ Feature: Ticket creation
 
     Examples:
       | create new ticket | subject | Type | select   | Department | submit |
-      | create new ticket | Android | IT   | Incident | IT         | submit |
-      | create new ticket | Android | IT   | Incident | Accounts   | submit |
-      | create new ticket | Android | IT   | Incident | Admin      | submit |
-      | create new ticket | Android | IT   | Incident | HR         | submit |
+      | create new ticket | Android |  IT  | Incident | IT         | submit |
+      | create new ticket | Android |  IT  | Incident | Accounts   | submit |
+      | create new ticket | Android |  IT  | Incident | Admin      | submit |
+      | create new ticket | Android |  IT  | Incident | HR         | submit |
 
 
 # REQUEST

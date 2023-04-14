@@ -31,10 +31,10 @@ Feature: Ticket creation
     Then Verify ticket status is cancelled
     Examples:
       | create new ticket | subject | Type | select   | Department | continue | deleteIcon       |
-      | create new ticket | Android | IT   | Incident | IT         | continue | deleteTicketIcon |
-      | create new ticket | Android | IT   | Incident | Accounts         | continue | deleteTicketIcon |
-      | create new ticket | Android | IT   | Incident | HR         | continue | deleteTicketIcon |
-      | create new ticket | Android | IT   | Incident | Admin         | continue | deleteTicketIcon |
+      | create new ticket | Android | IT   | Incident | IT         | continue | option |
+      | create new ticket | Android | IT   | Incident | Accounts         | continue | option |
+      | create new ticket | Android | IT   | Incident | HR         | continue | option |
+      | create new ticket | Android | IT   | Incident | Admin         | continue | option |
 
 
 

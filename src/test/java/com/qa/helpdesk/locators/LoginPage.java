@@ -18,7 +18,7 @@ public class LoginPage {
 
     public static By description=By.xpath("//textarea[@name='description']");
 
-    public static org.openqa.selenium.By actionBtn(String str)
+    public static By actionBtn(String str)
     {
         return By.xpath("//button[text()="+str+"]']");
     }

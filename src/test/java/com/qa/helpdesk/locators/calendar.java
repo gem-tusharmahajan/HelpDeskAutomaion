@@ -10,11 +10,11 @@ public class calendar {
 
     public static By calendarTab = By.xpath("//div/span[@class='rdrWeekDay']");
 
-    public static org.openqa.selenium.By calendarMonths(String str) throws InterruptedException {
+    public static By calendarMonths(String str) throws InterruptedException {
         return By.xpath("//button/span/span[text()='" + str + "']']");
     }
 
-    public static org.openqa.selenium.By calendarDays(String str) throws InterruptedException {
+    public static By calendarDays(String str) throws InterruptedException {
         return By.xpath("//button/span/span[text()=" + str + "]");
     }
 
@@ -27,9 +27,10 @@ public class calendar {
 
     public static By range=By.xpath("//span[@class='rdrInRange']");
 public static By weekend=By.xpath("//button[contains(@class,'rdrDay rdrDayWeekend')]");
-    public static org.openqa.selenium.By days(String str) throws InterruptedException
+    public static By days(String str) throws InterruptedException
     {
         return By.xpath("//button[contains(@class,'rdrDay')]/span/span[text()='"+str+"']");
+        //button[contains(@class,'rdrDay')]/span/span[text()='4']
     }
 
     public static By nextNavigationButton=By.xpath("//button[@class='rdrNextPrevButton rdrNextButton']");

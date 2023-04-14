@@ -11,7 +11,7 @@ public class TicketCreation
     public static By departmentType=By.xpath("//div/div/div/label[text()='Department']/../div/div/div/div/div/div[text()='Choose Option']");
     public static By incident=By.xpath("//div[text()='Incident']");
     public static By request=By.xpath("//div[text()='Request']");
-    public static org.openqa.selenium.By departments(String str) throws InterruptedException
+    public static By departments(String str) throws InterruptedException
     {
         return By.xpath("//div[text()='"+str+"']");
     }
@@ -36,13 +36,13 @@ public class TicketCreation
     public static By attachFiles=By.xpath("//div[@role='presentation']/input");
     public static By commentUpdate=By.xpath("(//div/span[text()='TM']/../div)[2]");
     public static By category=By.xpath("//label[text()='Category']/following-sibling::div");
-    public static org.openqa.selenium.By categoryOptions(String str) throws InterruptedException
+    public static By categoryOptions(String str) throws InterruptedException
     {
         return By.xpath("//div[text()='"+str+"']");
     }
 
     public static By subCategory=By.xpath("//label[text()='Sub-category']/following-sibling::div");
-    public static org.openqa.selenium.By subCategoryOptions(String str) throws InterruptedException
+    public static By subCategoryOptions(String str) throws InterruptedException
     {
         return By.xpath("//div[text()='"+str+"']");
     }
