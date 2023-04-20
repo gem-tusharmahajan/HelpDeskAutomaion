@@ -18,11 +18,14 @@ public class Filter {
 //Cancelled
     public static By rowPerPage = By.xpath("//select[@aria-label='rows per page']");
 
-    public static By rowPerPageDropdown = By.xpath("//select[@aria-label='rows per page']/option[text()='25']");
+    public static By rowPerPageDropdown (String value)
+    {
+    return By.xpath("//select[@aria-label='rows per page']/option[@value='"+value+"']");
+    }
 
     public static By noOfTickets = By.xpath("//p[contains(@class,'MuiTablePagination-displayedRows')]");
 
-    public static By clearAll = By.xpath("//button[@class='filters_clearButton__ZWsvi']");
+    public static By clearAll = By.xpath("//button[contains(@class,'filters_clearButton')]");
 
     public static By departmentColumn(String str) {
         return By.xpath("//th[text()='Department']/ancestor::table/tbody/tr['" + str + "']/td['" + str + "']");
@@ -43,7 +46,7 @@ public class Filter {
 
     public static By crossFilterButton=By.xpath("//div/img[@alt='cross icon']");
 
-    public static By closedFilter=By.xpath("//div[@class='filters_filterWrapper__pVutl container']");
+    public static By closedFilter=By.xpath("//div[contains(@class,'filters_filterWrapper')]");
 
 
 }

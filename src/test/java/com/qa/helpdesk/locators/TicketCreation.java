@@ -19,8 +19,8 @@ public class TicketCreation
     public static By submitBtn=By.xpath("//button[text()='Submit']");
     public static By continueBtn=By.xpath("//button[text()='Continue']");
     public static By ticketId=By.xpath("(//u[contains(@class,'Table_ticketId')])[1]");
-    public static By previewFileUpload=By.xpath("//div[@class='modal_uploadedFile__U-EK9']/img");
-    public static By previewFileUploaded=By.xpath("//div[@class='modal_uploadedFile__U-EK9']/img");
+    public static By previewFileUpload=By.xpath("//div[contains(@class,'modal_uploadedFile')]/img");
+    public static By previewFileUploaded=By.xpath("//div[@class,'modal_uploadedFile']/img");
 
     public static By ticketDateData=By.xpath("(//td)[5]");
 
@@ -67,5 +67,5 @@ public class TicketCreation
     public static By departmentError=By.xpath("//span[text()='Department is required']");
     public static By descriptionError=By.xpath("//span[text()='Description is required']");
     public static By uploadedFile=By.xpath("//div[contains(@class,'row mt-2')]");
-    public static By multipleFiles=By.xpath("//div[@class='row mt-2 modal_labelValue__gAjkJ']");
+    public static By multipleFiles=By.xpath("//div[contains(@class,'row mt-2 modal_labelValue')]");
 }

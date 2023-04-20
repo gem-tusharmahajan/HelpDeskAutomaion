@@ -5,17 +5,17 @@ import org.openqa.selenium.By;
 public class Notification
 {
     public static By notifications=By.xpath("//div/span[text()='Notifications']");
-    public static By notificationTickets=By.xpath("//div[@class='notification_mainBody__E6eFf']/li");
+    public static By notificationTickets=By.xpath("//div[contains(@class,'notification_mainBody')]/li");
     public static By unreadNotifications=By.xpath("//div[@role='button']/div[text()='Unread']");
 
     public static By noNewNotification=By.xpath("//div[text()='No new notification !!']");
-    public static By showMore=By.xpath("//a/u[contains(@class,'notification_showMore__RnR9I')]");
-    public static By totalTickets=By.xpath("//div[@class='notification_mainBody__E6eFf']/li");
+    public static By showMore=By.xpath("//a/u[contains(@class,'notification_showMore')]");
+//    public static By totalTickets=By.xpath("//div[contains(@class,'notification_mainBody')]/li");
+    public static By totalTickets=By.xpath("//img[@alt='unread']");
+    public static By notificationIconTickets=By.xpath("//div[contains(@class,'header_count')]/span");
+    public static By firstTicket=By.xpath("//div[contains(@class,'notification_mainBody')]/li");
+    public static By ticketHeader=By.xpath("//section[contains(@class,'header_myTickets')]");
 
-    public static By notificationIconTickets=By.xpath("//div[contains(@class,'header_count__-dTHO')]/span");
-
-    public static By firstTicket=By.xpath("//div[@class='notification_mainBody__E6eFf']/li");
-
-    public static By ticketHeader=By.xpath("//section[@class='header_myTickets__aaVje']");
+    public static By checkButton=By.xpath("//img[@alt='check']");
 
 }

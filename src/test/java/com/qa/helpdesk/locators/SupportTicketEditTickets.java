@@ -11,19 +11,15 @@ public class SupportTicketEditTickets {
     return By.xpath("//div[@class=' css-rpm0fm']/div[text()='"+str+"']");
     }
 
-//  public static By name= By.xpath("//div[@class=' css-rpm0fm']/div[@id='react-select-9-option-1']");
-
-    //div[@class=' css-rpm0fm']/div[text()='Tushar Mahajan  ']
     public static By name(String str)
     {
      String firstName=str+"  ";
-
-     return By.xpath("//div[@class=' css-rpm0fm']/div[text()='"+firstName+"']");
+     return By.xpath("//label[text()='Assigned To']/following::div[text()='"+firstName+"']");
     }
 
     public static By status(String str)
     {
-    return By.xpath("//div[@class=' css-hlgwow']/div[text()='"+str+"']");
+       return By.xpath("//label[text()='Status']/following::div[text()='"+str+"']");
     }
 
     public static By values(String str)
@@ -32,7 +28,5 @@ public class SupportTicketEditTickets {
     }
 
     public static By submitBtn=By.xpath("//button[text()='Submit']");
-
-//    public static By statuss=By.xpath("//div[contains(@class," css-hlgwow")]/div[text()='Assigned']");
 
 }

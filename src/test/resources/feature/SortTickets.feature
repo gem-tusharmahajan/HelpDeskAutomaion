@@ -2,13 +2,13 @@ Feature: Sort my tickets
 
   Background: Login Page
     Given User is on login Page of helpdesk
-    Then Verify user is on homepage of helpdesk
+    Then Verify user is on homePage of helpdesk
     And Login into Helpdesk portal
     When Enter email id in input field
     When Enter password in input field
     And Click on "Yes" button
     Then Verify user is still on login page
-
+    Then Verify user is on homePage of helpdesk
     And Select "Employee View" view
 
 

@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 public class SearchInTickets {
 
     public static By searchTicket=By.xpath("//input[@name='search']");
+
     public static By searchBar=By.xpath("//button[contains(@class,'py-2 button_backgroundBtn__vdCcK px-3')]");
     public static By ticketId=By.xpath("(//u[contains(@class,'Table_ticketId')])[1]");
     public static By subject=By.xpath("(//td)[2]");

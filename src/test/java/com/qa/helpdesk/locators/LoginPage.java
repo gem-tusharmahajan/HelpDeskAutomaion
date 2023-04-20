@@ -30,10 +30,9 @@ public class LoginPage {
 
     public static By outlookBackBtn=By.xpath("//input[@value='Back']");
     public static By outlookSignInBtn=By.xpath("//input[@value='Sign in']");
-    public static By getPasswordError=By.xpath("//div[@id='passwordError']");
+//    public static By getPasswordError=By.xpath("//div[@id='passwordError']");
     public static By outlookYesBtn=By.xpath("//input[@value='Yes']");
-    public static By ticketRows=By.xpath("//tbody/tr[contains(@class,'MuiTableRow-root css-1gqug66')]");
-    public static By HomePage=By.xpath("//div[@class='leftmenu_profileCard__RDG48']");
+    public static By ticketRows=By.xpath("//tbody/tr[contains(@class,'MuiTableRow-root')]");
     public static By toggleBtn=By.xpath("//input[@role='switch']");
     public static By validateFilterTab=By.xpath("//div[text()='Filters']");
     public static By userGuide=By.xpath("//section/img[@alt='userGuide']");
@@ -41,7 +40,7 @@ public class LoginPage {
     public static By supportIcon=By.xpath("//section/img[@alt='Support']");
     public static By logOutBtn=By.xpath("//section/img[@alt='logout']");
     public static By notificationIcon=By.xpath("//button/img[@alt='notification']");
-    public static By viewToggleBtn=By.xpath("//div[@class=' css-hlgwow']");
+    public static By viewToggleBtn=By.xpath("//div[text()='Support View']");
     public static By passwordError=By.xpath("//div[contains(@class,'error ext-error')]");
 
 public static By loginUsername=By.xpath("//div[@class='leftmenu_empName__hP5QR']");
