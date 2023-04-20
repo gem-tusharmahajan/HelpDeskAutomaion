@@ -126,7 +126,7 @@ public class Utils {
                 }
                 break;
             }
-            case "clear All": {
+            case "clear all": {
                 try {
                     elementPresent = DriverAction.isExist(Filter.clearAll);
                     if(elementPresent){
