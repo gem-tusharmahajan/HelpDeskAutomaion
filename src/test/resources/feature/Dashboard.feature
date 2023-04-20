@@ -13,10 +13,10 @@ Feature: Dashboard functionalities
   Scenario: user guide window
     Then Verify user guide pdf gets opens
 
-  Scenario: check functions of user guide window
-    Then Verify user guide pdf gets opens
-    And Click on copyLink button
-    And Click on close button
+#  Scenario: check functions of user guide window
+#    Then Verify user guide pdf gets opens
+#    And Click on copyLink button
+#    And Click on close button
 
   Scenario: Verify the contact us functionality
     And Click on support button

@@ -22,7 +22,7 @@ Feature: Filter page functionalities
 
 
   Scenario Outline: Clear all filters
-    And Click on "<filter>" button
+    And Click on "filter" button
     Then Verify filter tab is opened
     And Select "<department>" and select "<status>" in filter tab
     And Click on "filter" button

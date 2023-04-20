@@ -923,10 +923,15 @@ public class StepDefinition {
             waitSec(4);
             List<String> tabs = new ArrayList<>(DriverManager.getWebDriver().getWindowHandles());
             DriverAction.switchToWindow(tabs.get(1));
-            String userGuidePage = DriverAction.getElementText(Dashboard.userGuidePdf);
 
-            if (userGuidePage.equals("Helpdesk User Guide.pdf")) {
-                GemTestReporter.addTestStep("User Guide", "User guide is opened", STATUS.PASS, DriverAction.takeSnapShot());
+            String url=DriverAction.getCurrentURL();
+            if (url.equals("https://geminisolutionsindpvtltd-my.sharepoint.com/personal/priyanka_kumari_geminisolutions_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fpriyanka%5Fkumari%5Fgeminisolutions%5Fcom%2FDocuments%2FGemini%20Helpdesk%20Live%2FHelpdesk%20User%20Guide%2Epdf&parent=%2Fpersonal%2Fpriyanka%5Fkumari%5Fgeminisolutions%5Fcom%2FDocuments%2FGemini%20Helpdesk%20Live&ga=1"))
+            {
+            GemTestReporter.addTestStep("Verify user is on user guide page of helpdesk", "User is on user guide page of HelpDesk", STATUS.PASS, DriverAction.takeSnapShot());
+            }
+            else
+            {
+            GemTestReporter.addTestStep("Verify user is on user guide page of helpdesk", "User is not on user guide page of HelpDesk", STATUS.FAIL, DriverAction.takeSnapShot());
             }
 
         } catch (Exception e) {
