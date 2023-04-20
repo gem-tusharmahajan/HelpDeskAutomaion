@@ -116,6 +116,8 @@ public class StepDefinition {
 
     @Then("^Verify user is on homePage of helpdesk$")
     public void HomePageHelpdesk() {
+
+        Utils.waitUntilLoaderDisappear();
         DriverAction.waitSec(3);
         try {
             String url=DriverAction.getCurrentURL();
