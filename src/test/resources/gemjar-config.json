@@ -2,7 +2,7 @@
   "environment": "dev",
   "project_name": "HELPDESK",
   "report_name": "Helpdesk Report",
-  "jewel_user1": "tushar.mahajan",
+  "jewel_user": "tushar.mahajan",
   "jewel_bridge_token": "753f666f-1ffa-4723-a342-d0d78bb173621679297299707",
   "email_report": "n",
   "email_to": "tushar.mahajan@geminisolutions.com",
